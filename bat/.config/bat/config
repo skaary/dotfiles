@@ -1,0 +1,15 @@
+# Show line numbers, Git modifications
+--style="numbers,changes"
+
+# Limit the line range to 400 lines at most
+--line-range=:400
+
+# Always color the output
+--color=always
+
+# Wrap text
+--wrap=auto
+
+# Set the theme to "TwoDark"
+#--theme="TwoDark"
+--theme="Catppuccin-mocha"

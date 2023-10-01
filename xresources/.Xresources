@@ -1,0 +1,117 @@
+# Catppuccin colorscheme see https://github.com/catppuccin/xresources
+*background: #1E1E2E
+*foreground: #CDD6F4
+
+! black
+*color0: #45475A
+*color8: #585B70
+
+! red
+*color1: #F38BA8
+*color9: #F38BA8
+
+! green
+*color2: #A6E3A1
+*color10: #A6E3A1
+
+! yellow
+*color3: #F9E2AF
+*color11: #F9E2AF
+
+! blue
+*color4: #89B4FA
+*color12: #89B4FA
+
+! magenta
+*color5: #F5C2E7
+*color13: #F5C2E7
+
+! cyan
+*color6: #94E2D5
+*color14: #94E2D5
+
+! white
+*color7: #BAC2DE
+*color15: #A6ADC8
+
+! Ayu colorscheme see https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/Xresources/ayu
+/* *.foreground:  #e6e1cf */
+/* *.background:  #0f1419 */
+/* *.cursorColor: #f29718 */
+/* ! */
+/* ! Black */
+/* *.color0:      #000000 */
+/* *.color8:      #323232 */
+/* ! */
+/* ! Red */
+/* *.color1:      #ff3333 */
+/* *.color9:      #ff6565 */
+/* ! */
+/* ! Green */
+/* *.color2:      #b8cc52 */
+/* *.color10:     #eafe84 */
+/* ! */
+/* ! Yellow */
+/* *.color3:      #e7c547 */
+/* *.color11:     #fff779 */
+/* ! */
+/* ! Blue */
+/* *.color4:      #36a3d9 */
+/* *.color12:     #68d5ff */
+/* ! */
+/* ! Magenta */
+/* *.color5:      #f07178 */
+/* *.color13:     #ffa3aa */
+/* ! */
+/* ! Cyan */
+/* *.color6:      #95e6cb */
+/* *.color14:     #c7fffd */
+/* ! */
+/* ! White */
+/* *.color7:      #ffffff */
+/* *.color15:     #ffffff */
+/* ! */
+/* ! Bold, Italic, Underline */
+/* *.colorBD:     #e6e1cf */
+!*.colorIT:
+!*.colorUL:
+
+URxvt.depth: 32
+! value in [] is for opacity, value after is for bg color
+URxvt.background: [85]#000000
+URxvt.internalBorder: 10
+
+! URxvt.font: xft:monospace:size=11
+URxvt.font: xft:SauceCodePro Nerd Font Mono:pixelsize=19
+/* URxvt.font: xft:Fira Code Nerd Font Complete Mono:pixelsize=19 *1/ */
+
+URxvt*letterSpace: 0
+
+URxvt.scrollBar: false
+URxvt.cursorColor: orange
+
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.iso14755: false
+
+URxvt.keysym.Control-Up:    \033[1;5A
+URxvt.keysym.Control-Down:  \033[1;5B
+URxvt.keysym.Control-Left:  \033[1;5D
+URxvt.keysym.Control-Right: \033[1;5C
+
+!!Extensions
+!Urxvt.perl-lib: ~/.config/urxvt/ext/
+!URxvt.perl-ext-common: default,matcher,resize-font,keyboard-select,url-select
+!!! resize-font
+!URxvt.keysym.C-minus:  font-size:decrease
+!URxvt.keysym.C-equal:  font-size:increase
+!!! keyboard-select
+!URxvt.keysym.M-Escape: perl:keyboard-select:activate
+!!! matcher
+!URxvt.url-launcher: /usr/bin/xdg-open
+!URxvt.matcher.button: 1
+!URxvt.matcher.rend.0: Uline Bold fg5
+!!! url-select
+!!! URxvt.keysym.C-u:  url-select:select_next
+!URxvt.url-select.launcher: /usr/bin/xdg-open
+!URxvt.url-select.underline: true

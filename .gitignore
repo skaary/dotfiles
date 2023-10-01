@@ -1,0 +1,41 @@
+# git
+gitconfig.local
+
+#cmus
+cmus/.config/cmus/cache
+cmus/.config/cmus/resume
+cmus/.config/cmus/search-history
+
+#ranger
+ranger/.config/ranger/history
+
+#mpd
+mpd/.config/mpd/log
+
+# Vim
+vim/.vim/bundle/
+## Swap
+[._]*.s[a-v][a-z]
+#!*.svg  # comment out if you don't need vector files
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+## Session
+Session.vim
+Sessionx.vim
+
+## Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+## Persistent undo
+[._]*.un~
+
+# Zsh
+## Zsh completion-optimization dumpfile
+*zcompdump*
+# Zsh zcalc history
+.zcalc_history

@@ -1,0 +1,8 @@
+# embed metadata into file
+--add-metadata
+
+# choose best audio quality for audio extraction
+--audio-quality 0
+
+# save all videos under YouTube directory in home directory
+-o "~/Videos/youTube/%(uploader)s - %(title)s.%(ext)s"

@@ -1,0 +1,106 @@
+# reference: https://git-scm.com/docs/git-config
+[include]
+  path = ./gitconfig.local # for [user]
+
+[init]
+	defaultBranch = main
+
+[core]
+	editor = nvim
+	pager = diff-so-fancy | less --tabs=2 -RFXS
+  # pager = less --tabs=2 -RFXS
+	# Use 'input' on unix systems, 'true' on Windows, see https://stackoverflow.com/questions/46306379/what-does-gits-auto-crlf-setting-actually-do
+	autocrlf = input
+
+[pager]
+  ; branch = false
+
+[color]
+	diff = auto
+	branch = auto
+	ui = auto
+
+[interactive]
+	diffFilter = diff-so-fancy --patch
+
+[alias]
+  # add aliases
+  # https://git-scm.com/docs/git-add
+  aa = git add --all :/ # add all content for the whole git directory
+  awd = git add --all . # add all content for the current directory
+  au = add --update
+  ae = add --edit
+  ap = add --patch
+  ai = add --interactive
+
+	# checkout aliases
+  # https://git-scm.com/docs/git-checkout
+	co = checkout
+	cob = checkout -b
+
+	# commit aliases
+  # https://git-scm.com/docs/git-commit
+	c = commit --message
+	ca = commit --amend
+  #cv = commit -v
+	oops = commit --amend -C HEAD # When I forget to stage a file into a commit, 'git add' the missed file, then
+
+	# status aliases
+  # https://git-scm.com/docs/git-status
+	s = status
+	ss = status --short --branch
+
+	# branch aliases
+	b = branch --all
+  bl = branch --all --ignore-case --list # list all branches named <pattern>
+  ; bg = branch -r --contains # list all branches with commit <contains>
+
+  # switch aliases
+  # https://git-scm.com/docs/git-switch
+
+	# diff aliases
+  # https://git-scm.com/docs/git-diff
+	diff-stat = diff --stat --ignore-space-change --raw
+	diff-changes = diff --name-status --raw
+	diff-words = diff --color-words='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'
+	diff-staged = diff --cached # show diff of what has been staged (via git add)
+	df = "!f() { git diff --name-status -r "HEAD~$1"; }; f"
+
+  # stash aliases
+	stashes = stash list
+	stashdiff = stash show -p -w stash@{0} # Show diff of what was last stashed (via git stash)
+
+	# log aliases
+  # https://git-scm.com/docs/git-log
+	l = !git --no-pager log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ch)%Cblue [%an]%Creset' -15
+	lp = log --color --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ch)%Cblue [%an]%Creset' # l w/ pager
+	lpa = log --color --branches --remotes --tags --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ch)%Cblue [%an]%Creset' # l /w pager & all
+	ll = !git l --all --branches
+	lf = !git --no-pager log --pretty=format:'%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --numstat -1
+	ls = log --pretty=format:'%C(red)%h%Creset%C(yellow)%d %Creset%s%Cblue [%cn]' --decorate --stat
+  ; lg = log --grep= # need positional argument
+  ; git log main..feature # search by range
+
+	; standup = log --since yesterday --author skaary --all
+
+  # show aliases
+  # https://git-scm.com/docs/git-show
+	shw = show --pretty=format:'hash:    %C(green)%h%C(reset) %nparent:  %C(red)%p%C(reset)%nref:     %C(yellow)%D%C(reset)%nauthor:  %an <%ae>%ndate:    %ad%nmessage: %s%n'
+	sh = !git shw --no-patch
+	shp = !git shw --patch
+
+  # misc aliases
+	; squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\" --no-verify; };f"
+	; f = fetch --prune --tags --force
+	; p = pull --rebase
+	; purge = "!git branch --merged | grep -Ev '(\\*|master|develop|staging)' | xargs -r -n 1 git branch -d"
+	; u = !git f && git p && git purge
+	; unstage = reset HEAD
+
+  # update-index
+  # https://git-scm.com/docs/git-update-index
+	; hide = update-index --assume-unchanged
+	; unhide = update-index --no-assume-unchanged
+
+	# print all git aliases listed in gitconfig
+	alias = !git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
